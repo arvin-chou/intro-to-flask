@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <h2>Search</h2>
+    <form action="#" method=post>
+  {% if success %}
+      {{ form.name.label }}
+      {{ form.name.data }}
+      
+      {{ form.email.label }}
+      {{ form.email.data }}
+  {% else %}  
+   
+      {% for message in form.token.errors %}
+        <div class="flash">{{ message }}</div>
+      {% endfor %}
+
+
+      {{ form.token.label }}
+      {{ form.token }}
+
+      {{ form.submit }}
+  {% endif %}
+    </form>
+{% endblock %}
